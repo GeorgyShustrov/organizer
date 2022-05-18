@@ -1,1 +1,40 @@
-<p>organizer works!</p>
+<section class="organizer">
+  <header>
+    Organizer:
+    <strong>{{ dateService.date | async | moment: "DD.MM.YYYY" }}</strong>
+    <hr />
+  </header>
+  <main>
+    <ul>
+      <li class="task">
+        <div>
+          <div class="header">
+            <span>
+              <strong>1</strong>
+              Name
+            </span>
+          </div>
+          <div class="text">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo,
+            soluta.
+          </div>
+        </div>
+        <button class="btn btn-primary">Remuve</button>
+      </li>
+    </ul>
+  </main>
+  <footer>
+    <form (ngSubmit)="submit()" [formGroup]="form">
+      <input type="text" placeholder="Title" formControlName="title" />
+      <textarea
+        formControlName="description"
+        placeholder="Description"
+        cols="30"
+        rows="10"
+      ></textarea>
+      <button type="submit" class="btn btn-block" [disabled]="form.invalid">
+        Add
+      </button>
+    </form>
+  </footer>
+</section>
