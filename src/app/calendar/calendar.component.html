@@ -1,1 +1,27 @@
-<p>calendar works!</p>
+<div class="calendar">
+  <div class="head">
+    <div class="week">
+      <span class="day">Sun</span>
+      <span class="day">Mon</span>
+      <span class="day">Tue</span>
+      <span class="day">Wen</span>
+      <span class="day">Thu</span>
+      <span class="day">Fri</span>
+      <span class="day">Sat</span>
+    </div>
+  </div>
+  <div class="body">
+    <div class="week" *ngFor="let week of calendar">
+      <span
+        class="day"
+        *ngFor="let day of week.days"
+        [class.disabled]="day.disabled"
+        [class.selected]="day.selected"
+        [class.active]="day.active"
+        (click)="select(day.value)"
+      >
+        {{ day.value | moment: "ddd DD" }}
+      </span>
+    </div>
+  </div>
+</div>
